@@ -8,14 +8,11 @@ const db = new denodb.Database("postgres", {
   password: "postgres",
 });
 
-const ping_response = db.ping().then((res) => {
-  if (!ping_response) throw Error("No response from database connection test");
-  else console.log("Connection to database established.");
-});
+console.log("Checking database connection");
+const ping_response = await db.ping();
+if (!ping_response) throw Error("No response from database");
 
-db.link([User]);
-
-await db.sync({ drop: true });
-console.log("Database has been syncronized.");
+console.log("Synchronizing database");
+await db.link([User]).sync({ drop: true });
 
 export { db };
