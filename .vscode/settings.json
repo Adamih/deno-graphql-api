@@ -1,3 +1,18 @@
 {
     "deno.enable": true,
+    "editor.rulers": [
+        80
+    ],
+    "sqltools.connections": [
+        {
+            "database": "postgres",
+            "driver": "PostgreSQL",
+            "name": "deno-gql-postgres-docker",
+            "password": "postgres",
+            "port": 5432,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "postgres"
+        }
+    ]
 }
